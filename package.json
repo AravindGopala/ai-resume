@@ -2,6 +2,9 @@
   "name": "ai-resume",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "24.x"
+  },
   "scripts": {
     "dev": "npm run copy-pdf-worker && next dev",
     "build:original": "next build",
@@ -51,7 +54,7 @@
   },
   "devDependencies": {
     "@types/next": "^9.0.0",
-    "@types/node": "^20.17.47",
+    "@types/node": "^24.13.3",
     "@types/pdfjs-dist": "^2.10.378",
     "@types/react": "^18",
     "@types/react-dom": "^18",

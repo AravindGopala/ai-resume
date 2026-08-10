@@ -1,7 +1,7 @@
 { pkgs ? import <nixpkgs> {} }:
 
 let
-  nodejs = pkgs.nodejs_20;
+  nodejs = pkgs.nodejs_24;
 in pkgs.mkShell {
   buildInputs = with pkgs; [
     nodejs
