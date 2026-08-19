@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
-import { geolocation } from '@vercel/functions'
+// Le point d'entrée racine de @vercel/functions charge son module WebSocket, qui
+// dépend du peer optionnel `ws` absent ici ; le sous-chemin `headers` l'évite.
+import { geolocation } from '@vercel/functions/headers'
 import { resolvePreferredLanguage } from '@/lib/preferred-language'
 
 export function middleware(request: NextRequest) {
