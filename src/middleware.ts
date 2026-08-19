@@ -1,11 +1,11 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
-import { geolocation } from '@vercel/edge'
-
-const SPANISH_COUNTRIES = ['ES', 'MX', 'AR', 'CL', 'CO', 'PE', 'VE', 'EC', 'GT', 'CU', 'BO', 'DO', 'HN', 'PY', 'SV', 'NI', 'CR', 'PA', 'UY']
+// Le point d'entrée racine de @vercel/functions charge son module WebSocket, qui
+// dépend du peer optionnel `ws` absent ici ; le sous-chemin `headers` l'évite.
+import { geolocation } from '@vercel/functions/headers'
+import { resolvePreferredLanguage } from '@/lib/preferred-language'
 
 export function middleware(request: NextRequest) {
-  const acceptLang = request.headers.get('accept-language')?.split(',')[0]
   const hostname = request.headers.get('host')
 
   if (hostname === 'danielbaez.cl' || hostname === 'www.danielbaez.cl') {
@@ -13,11 +13,11 @@ export function middleware(request: NextRequest) {
   }
 
   const { country } = geolocation(request)
-  const shouldUseSpanish =
-    acceptLang?.startsWith('es') ||
-    (country && SPANISH_COUNTRIES.includes(country))
+  const targetLang = resolvePreferredLanguage({
+    acceptLanguage: request.headers.get('accept-language'),
+    country,
+  })
 
-  const targetLang = shouldUseSpanish ? 'es' : 'en'
   return NextResponse.redirect(new URL(`/${targetLang}`, request.url))
 }
 
