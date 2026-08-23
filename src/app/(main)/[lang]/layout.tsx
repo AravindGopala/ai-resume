@@ -5,7 +5,6 @@ import GoogleAnalytics from "@/components/analytics/google-analytics";
 import Script from "next/script";
 import { Suspense } from "react";
 import { ScrollToTop } from "@/components/ui/scroll-to-top";
-import { GithubRibbon } from "@/components/ui/github-ribbon";
 import { TrackClicks } from "@/components/analytics/track-clicks";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -59,7 +58,6 @@ export default async function MainLayout({
         />
       </head>
       <body className="antialiased">
-        <GithubRibbon />
         {children}
         <Toaster />
         <ScrollToTop />
