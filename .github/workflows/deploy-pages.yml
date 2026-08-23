@@ -41,7 +41,9 @@ jobs:
         run: |
           # A user/org page (repo named <owner>.github.io) is served from the
           # domain root; any other repo is a project page served from /<repo>.
-          if [ "$REPO_NAME" = "${OWNER,,}.github.io" ]; then
+          # Compare case-insensitively: GitHub preserves the case you typed in
+          # the repo name, but the served hostname is always lowercased.
+          if [ "${REPO_NAME,,}" = "${OWNER,,}.github.io" ]; then
             echo "path=" >> "$GITHUB_OUTPUT"
           else
             echo "path=/$REPO_NAME" >> "$GITHUB_OUTPUT"
