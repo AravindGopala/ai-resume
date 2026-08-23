@@ -4,7 +4,6 @@ import "../../globals.css";
 import GoogleAnalytics from "@/components/analytics/google-analytics";
 import { Suspense } from "react";
 import { ScrollToTop } from "@/components/ui/scroll-to-top";
-import { GithubRibbon } from "@/components/ui/github-ribbon";
 import { TrackClicks } from "@/components/analytics/track-clicks";
 import { getMetadataBase, SITE_BACKGROUND_COLOR, SITE_THEME_COLOR } from "@/lib/seo";
 import { withBasePath } from "@/lib/base-path";
@@ -51,7 +50,6 @@ export default async function MainLayout({
         </Suspense>
       </head>
       <body className="antialiased">
-        <GithubRibbon />
         {children}
         <Toaster />
         <ScrollToTop />
