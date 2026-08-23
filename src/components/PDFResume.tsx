@@ -393,24 +393,31 @@ export const PDFResume = ({
 }) => {
   const t = getTranslations(currentLang);
   
-  const socialLinks = {
-    linkedin: "https://linkedin.com/in/baezdaniel",
-    github: "https://github.com/danielbaez",
-    website: "https://baezdaniel.cl"
-  };
+  const socialLinks = [
+    profileData.info.linkedin,
+    profileData.info.github,
+  ].filter((link): link is string => Boolean(link));
+
+  const contactLine = [profileData.info.email, profileData.info.phone]
+    .filter(Boolean)
+    .join(" | ");
 
   return (
     <Document>
       <Page size={[595.276, 'auto']} style={styles.page}>
         <View style={styles.headerSection}>
-          <Text style={styles.name}>Daniel Baez</Text>
+          <Text style={styles.name}>{profileData.info.name}</Text>
           <Text style={styles.title}>{profileData.info.title} | {profileData.info.subtitle}</Text>
           <Text style={styles.location}>{profileData.info.location}</Text>
           <View style={styles.links}>
+            <Text>{contactLine}</Text>
             <Text>
-              <Link src={socialLinks.linkedin} style={styles.headerLink}>{socialLinks.linkedin}</Link> | {' '}
-              <Link src={socialLinks.github} style={styles.headerLink}>{socialLinks.github}</Link> | {' '}
-              <Link src={socialLinks.website} style={styles.headerLink}>{socialLinks.website}</Link>
+              {socialLinks.map((link, index) => (
+                <React.Fragment key={link}>
+                  {index > 0 && ' | '}
+                  <Link src={link} style={styles.headerLink}>{link}</Link>
+                </React.Fragment>
+              ))}
             </Text>
           </View>
         </View>
@@ -471,6 +478,7 @@ export const PDFResume = ({
           </View>
         </View>
 
+        {profileData.softSkills.length > 0 && (
         <View>
           <Text style={styles.sectionTitle}>{t.sections.softSkills}</Text>
           <View style={styles.languagesContainer}>
@@ -486,6 +494,7 @@ export const PDFResume = ({
             ))}
           </View>
         </View>
+        )}
 
         <View>
           <Text style={styles.sectionTitle}>{t.pdf.sections.technicalSkills}</Text>
@@ -504,7 +513,7 @@ export const PDFResume = ({
             </View>
           ))}
         </View>
-        <Text style={styles.footer}>Daniel Baez | Software Engineer | {profileData.info.location}</Text>
+        <Text style={styles.footer}>{profileData.info.name} | {profileData.info.title} | {profileData.info.location}</Text>
       </Page>
     </Document>
   );

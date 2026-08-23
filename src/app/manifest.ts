@@ -3,8 +3,8 @@ import { SITE_BACKGROUND_COLOR, SITE_THEME_COLOR } from "@/lib/seo";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Daniel Baez - Software Engineer",
-    short_name: "Daniel Baez",
+    name: "Aravind Datla - Senior Embedded Software Engineer",
+    short_name: "Aravind Datla",
     description:
       "Senior Software Engineer specializing in cloud-native platforms & IoT solutions",
     start_url: "/en",

@@ -24,21 +24,21 @@ describe("download-filename", () => {
   test("buildResumeDownloadFilename", () => {
     assert.strictEqual(
       buildResumeDownloadFilename("en", fixedDate),
-      "daniel_baez-resume-en_2026_june_13.pdf"
+      "aravind_datla-resume-en_2026_june_13.pdf"
     );
   });
 
   test("buildCertificateDownloadFilename", () => {
     assert.strictEqual(
       buildCertificateDownloadFilename("french-c1", fixedDate),
-      "daniel_baez-certificate-french-c1_2026_june_13.pdf"
+      "aravind_datla-certificate-french-c1_2026_june_13.pdf"
     );
   });
 
   test("buildExperienceLetterDownloadFilename", () => {
     assert.strictEqual(
       buildExperienceLetterDownloadFilename("adexus", fixedDate),
-      "daniel_baez-experience-letter-adexus_2026_june_13.pdf"
+      "aravind_datla-experience-letter-adexus_2026_june_13.pdf"
     );
   });
 });

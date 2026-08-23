@@ -62,8 +62,8 @@ export async function verifyAndSendEmail(token: string, formData: FormDataObject
   // Send email if reCAPTCHA is verified
   try {
     await resend.emails.send({
-      from: "Contact <contact@baezdaniel.cl>",
-      to: ["daniel@baezdaniel.cl"],
+      from: "Contact <onboarding@resend.dev>",
+      to: ["aravind.datla99@gmail.com"],
       subject: "New Contact Form Submission",
       html: `<p>Name: ${formData.name}</p>
              <p>Email: ${formData.email}</p>

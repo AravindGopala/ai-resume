@@ -1,77 +1,50 @@
 {
   "categories": {
     "core": {
-      "name": {
-        "en": "Core Technologies",
-        "es": "Tecnologías Core",
-        "fr": "Technologies Principales",
-        "de": "Kerntechnologien"
-      },
+      "name": { "en": "Core Technologies" },
       "skills": [
-        "Amazon Web Services (AWS)",
-        "IoT",
-        "Microservices",
-        "Google Cloud Platform (GCP)",
-        "Vercel",
-        "Firebase"
+        "Embedded Linux",
+        "FreeRTOS",
+        "Firmware Bring-Up",
+        "Board Support Packages",
+        "IoT / Connected Devices",
+        "Low-Power Optimization",
+        "Object-Oriented Design (UML, SOLID, Design Patterns)"
       ]
     },
     "languages": {
-      "name": {
-        "en": "Programming Languages",
-        "es": "Lenguajes de Programación",
-        "fr": "Langages de Programmation",
-        "de": "Programmiersprachen"
-      },
+      "name": { "en": "Programming Languages" },
       "skills": [
-        "Java",
-        "JavaScript",
-        "Go",
         "C",
-        "PHP",
-        "TypeScript",
-        "Ruby",
-        "Clojure(Script)",
+        "C++",
+        "Assembly",
         "Python",
         "Shell Scripting"
       ]
     },
     "frameworks": {
-      "name": {
-        "en": "Frameworks & Tools",
-        "es": "Frameworks & Herramientas",
-        "fr": "Frameworks & Outils",
-        "de": "Frameworks & Tools"
-      },
+      "name": { "en": "Tools, Protocols & Platforms" },
       "skills": [
-        "AWS Lambda",
-        "Bazel",
-        "Docker",
-        "DynamoDB",
+        "ARM Toolchain",
+        "CMake",
+        "Make",
+        "Ninja",
+        "U-Boot",
+        "Linux Kernel",
+        "Root File System",
+        "GDB & Core File Analysis",
+        "CAN",
+        "I2C",
+        "SPI",
+        "IPC",
+        "Wi-Fi",
+        "LTE",
+        "GPS",
+        "CANoe",
+        "CANalyzer",
         "Git",
-        "Gradle",
-        "J2EE",
-        "Jenkins",
-        "Kafka",
-        "Kubernetes",
-        "Laravel/CodeIgniter",
-        "MQTT",
-        "Maven",
-        "Memcached",
-        "MongoDB",
-        "MySQL/MariaDB",
-        "Next.js",
-        "Node.js",
-        "Oracle",
-        "PostgreSQL",
-        "RabbitMQ",
-        "Rails",
-        "React",
-        "Redis",
-        "SQL Server",
-        "SQLite",
-        "Terraform"
+        "Unit Testing (Mocks, Fakes, Stubs)"
       ]
     }
   }
-} 
+}

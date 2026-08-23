@@ -48,6 +48,10 @@ export const getProfileData = (lang: Language): ProfileData => {
       subtitle: resolve(raw.info.subtitle, lang.code),
       calendlyUrl: raw.info.calendlyUrl,
       location: raw.info.location,
+      email: raw.info.email,
+      phone: raw.info.phone,
+      linkedin: raw.info.linkedin,
+      github: raw.info.github,
     },
     education: raw.education.map((e: { title: TranslatableString; period: string; institution: string }) => ({
       title: resolve(e.title, lang.code),

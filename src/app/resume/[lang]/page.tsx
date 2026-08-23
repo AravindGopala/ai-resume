@@ -9,6 +9,7 @@ import {
   resolveDocumentText,
 } from "@/lib/document-sources";
 import { getSiteUrl } from "@/lib/site-url";
+import { SITE_OWNER_NAME } from "@/lib/site-owner";
 
 export function generateStaticParams() {
   return Object.keys(AVAILABLE_LANGUAGES).map((lang) => ({ lang }));
@@ -42,7 +43,7 @@ export async function generateMetadata({
       title,
       description,
       url,
-      siteName: "Daniel Baez",
+      siteName: SITE_OWNER_NAME,
       type: "website",
       images: [
         {

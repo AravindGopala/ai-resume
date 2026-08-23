@@ -78,6 +78,7 @@ export function Education({ educationEntries, certifications, languages, current
           </div>
         </div>
 
+        {softSkills.length > 0 && (
         <div>
           <h3 className="text-lg font-semibold text-gray-800 mb-3">{t.sections.softSkills}</h3>
           <div className="flex flex-col gap-2">
@@ -108,7 +109,8 @@ export function Education({ educationEntries, certifications, languages, current
             })}
           </div>
         </div>
-        
+        )}
+
       </CardContent>
 
     </Card>

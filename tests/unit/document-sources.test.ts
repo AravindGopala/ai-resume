@@ -1,7 +1,5 @@
 import { test, describe } from "node:test";
 import assert from "node:assert";
-import fs from "fs";
-import path from "path";
 import {
   getCertificateDocuments,
   getExperienceLetterDocuments,
@@ -16,7 +14,7 @@ describe("document-sources", () => {
     const certs = getCertificateDocuments();
     const slugs = certs.map((c) => c.slug);
 
-    assert.strictEqual(certs.length, 6);
+    assert.strictEqual(certs.length, 0);
     assert.strictEqual(new Set(slugs).size, slugs.length);
   });
 
@@ -32,22 +30,12 @@ describe("document-sources", () => {
     }
   });
 
-  test("french certificate infers DELF issuer", () => {
-    const frenchC1 = getCertificateDocuments().find((c) => c.slug === "french-c1");
-    assert.ok(frenchC1);
-    assert.strictEqual(frenchC1.subtitle, "DELF");
-  });
-
   test("experience letters have expected slugs", () => {
     const letters = getExperienceLetterDocuments();
     const slugs = letters.map((l) => l.slug).sort();
 
-    assert.strictEqual(letters.length, 3);
-    assert.deepStrictEqual(slugs, [
-      "adexus",
-      "clear2pay",
-      "santiago-stock-exchange",
-    ]);
+    assert.strictEqual(letters.length, 0);
+    assert.deepStrictEqual(slugs, []);
   });
 
   test("experience letter paths are consistent", () => {
@@ -77,7 +65,7 @@ describe("document-sources", () => {
 
   test("getAllPreviewDocuments aggregates all document types", () => {
     const all = getAllPreviewDocuments();
-    assert.strictEqual(all.length, 12);
+    assert.strictEqual(all.length, Object.keys(AVAILABLE_LANGUAGES).length);
     assert.strictEqual(new Set(all.map((d) => d.slug)).size, all.length);
   });
 
@@ -103,18 +91,4 @@ describe("document-sources", () => {
     }
   });
 
-  test("committed certificate PDFs exist on disk", () => {
-    const publicDir = path.join(process.cwd(), "public");
-    const committedPdfs = [
-      "certificates/crossfit-level1-trainer.pdf",
-      "certificates/french-c1.pdf",
-    ];
-
-    for (const relativePath of committedPdfs) {
-      assert.ok(
-        fs.existsSync(path.join(publicDir, relativePath)),
-        `missing committed PDF: ${relativePath}`
-      );
-    }
-  });
 });

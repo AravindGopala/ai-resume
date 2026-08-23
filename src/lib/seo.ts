@@ -4,16 +4,14 @@ import { AVAILABLE_LANGUAGES } from "@/constants/i18n";
 import { getSiteUrl } from "@/lib/site-url";
 
 export const SOCIAL_PROFILES = {
-  linkedin: "https://linkedin.com/in/baezdaniel",
-  github: "https://github.com/daniel-baez",
+  linkedin: "https://linkedin.com/in/aravind-datla",
+  github: "https://github.com/aravind-datla",
 } as const;
 
 export const SAME_AS_URLS = Object.values(SOCIAL_PROFILES);
 
 export const OG_LOCALE_BY_LANG: Record<string, string> = {
   en: "en_US",
-  es: "es_ES",
-  fr: "fr_FR",
 };
 
 export const SITE_THEME_COLOR = "#1e3a8a";

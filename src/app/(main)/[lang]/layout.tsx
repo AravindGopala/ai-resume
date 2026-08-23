@@ -17,9 +17,9 @@ const Toaster = dynamic(
 
 export const metadata: Metadata = {
   metadataBase: getMetadataBase(),
-  title: "Daniel Baez - Software Engineer",
+  title: "Aravind Datla - Senior Embedded Software Engineer",
   description:
-    "Senior Software Engineer specializing in cloud-native platforms & IoT solutions",
+    "Senior Embedded Software Engineer specializing in embedded Linux, firmware bring-up and IoT systems",
   icons: {
     icon: "/icons/favicon.ico",
     apple: "/icons/apple-touch-icon.png",

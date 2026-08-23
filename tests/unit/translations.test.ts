@@ -42,8 +42,6 @@ describe("translations", () => {
 
   test("documentViewer home label is localized and not portfolio", () => {
     assert.strictEqual(getTranslations(AVAILABLE_LANGUAGES.en).documentViewer.home, "Home");
-    assert.strictEqual(getTranslations(AVAILABLE_LANGUAGES.es).documentViewer.home, "Inicio");
-    assert.strictEqual(getTranslations(AVAILABLE_LANGUAGES.fr).documentViewer.home, "Accueil");
 
     for (const langCode of Object.keys(AVAILABLE_LANGUAGES)) {
       const home = getTranslations(AVAILABLE_LANGUAGES[langCode]).documentViewer.home;

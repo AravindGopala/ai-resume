@@ -75,6 +75,10 @@ export interface HeaderProps {
   subtitle: string;
   calendlyUrl: string;
   location: string;
+  email: string;
+  phone?: string;
+  linkedin?: string;
+  github?: string;
 }
 
 export type ProfileData = {

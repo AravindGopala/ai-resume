@@ -7,12 +7,12 @@ export function Footer() {
       <div className="container mx-auto px-4">
         <div className="flex justify-center space-x-6">
           <Link
-            href="https://linkedin.com/in/baezdaniel"
+            href="https://linkedin.com/in/aravind-datla"
             target="_blank"
             rel="noopener noreferrer"
             data-track-event="social_link_click"
             data-track-label="linkedin"
-            data-track-url="https://linkedin.com/in/baezdaniel"
+            data-track-url="https://linkedin.com/in/aravind-datla"
             className="text-gray-600 hover:text-blue-600 transition-colors"
           >
             <Linkedin className="h-6 w-6" />
@@ -20,12 +20,12 @@ export function Footer() {
           </Link>
 
           <Link
-            href="https://github.com/daniel-baez"
+            href="https://github.com/aravind-datla"
             target="_blank"
             rel="noopener noreferrer"
             data-track-event="social_link_click"
             data-track-label="github"
-            data-track-url="https://github.com/daniel-baez"
+            data-track-url="https://github.com/aravind-datla"
             className="text-gray-600 hover:text-blue-600 transition-colors"
           >
             <Github className="h-6 w-6" />
@@ -34,7 +34,7 @@ export function Footer() {
         </div>
         
         <p className="mt-4 text-center text-sm text-gray-500">
-          &copy; {new Date().getFullYear()} Daniel Baez. All rights reserved.
+          &copy; {new Date().getFullYear()} Aravind Datla. All rights reserved.
         </p>
       </div>
     </footer>

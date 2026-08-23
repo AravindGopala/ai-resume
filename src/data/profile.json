@@ -1,168 +1,71 @@
 {
   "info": {
     "name": {
-      "en": "Daniel Baez",
-      "es": "Daniel Báez",
-      "fr": "Daniel Báez",
-      "de": "Daniel Báez"
+      "en": "Aravind Datla"
     },
     "title": {
-      "en": "Software Engineer",
-      "es": "Ingeniero de Software",
-      "fr": "Ingénieur de Logiciel",
-      "de": "Software-Ingenieur"
+      "en": "Senior Embedded Software Engineer"
     },
     "subtitle": {
-      "en": "Cloud-Native Architect & IoT Expert",
-      "es": "Arquitecto Cloud-Native & Experto en IoT",
-      "fr": "Architecte Cloud & Expert en IoT",
-      "de": "Cloud-Native Architekt & IoT-Experte"
+      "en": "Embedded Linux, Firmware & IoT Systems"
     },
-    "calendlyUrl": "https://calendly.com/daniel-baezdaniel",
-    "location": "San Francisco, CA | Remote"
+    "calendlyUrl": "https://calendly.com/aravind-datla",
+    "location": "United States | Remote",
+    "email": "aravind.datla99@gmail.com",
+    "phone": "+1 (713) 614-5320",
+    "linkedin": "https://linkedin.com/in/aravind-datla",
+    "github": "https://github.com/aravind-datla"
   },
   "education": [
     {
       "title": {
-        "en": "Bachelor in Computer Science",
-        "es": "Ingeniero de Software, Ingeniería Informática",
-        "fr": "Licence en Informatique",
-        "de": "Bachelor in Informatik"
+        "en": "M.S. in Electrical and Computer Engineering (GPA 3.96/4.0)"
       },
-      "period": "2005 - 2010",
-      "institution": "Universidad Tecnológica De Chile"
+      "period": "2013 - 2015",
+      "institution": "Oklahoma State University, Stillwater, OK"
+    },
+    {
+      "title": {
+        "en": "B.E. in Electrical and Electronics Engineering (GPA 3.6/4.0)"
+      },
+      "period": "2009 - 2013",
+      "institution": "Andhra University, Visakhapatnam, India"
     }
   ],
   "languages": [
     {
       "name": {
-        "en": "Spanish",
-        "es": "Español",
-        "fr": "Espagnol",
-        "de": "Spanisch"
+        "en": "Telugu"
       },
       "level": {
-        "en": "Native",
-        "es": "Nativo",
-        "fr": "Langue maternelle",
-        "de": "Muttersprache"
+        "en": "Native"
       }
     },
     {
       "name": {
-        "en": "English",
-        "es": "Inglés",
-        "fr": "Anglais",
-        "de": "Englisch"
+        "en": "English"
       },
       "level": {
-        "en": "Fluent",
-        "es": "Fluido",
-        "fr": "Courant",
-        "de": "Fließend"
+        "en": "Fluent"
       }
     },
     {
       "name": {
-        "en": "French",
-        "es": "Francés",
-        "fr": "Français",
-        "de": "Französisch"
+        "en": "Hindi"
       },
       "level": {
-        "en": "Advanced",
-        "es": "Avanzado",
-        "fr": "Avancé",
-        "de": "Mittelstufe"
-      },
-      "certifications": [
-        {
-          "name": "B2",
-          "url": "/certificates/french-b2"
-        },
-        {
-          "name": "C1",
-          "url": "/certificates/french-c1"
-        }
-      ]
-    },
-    {
-      "name": {
-        "en": "German",
-        "es": "Alemán",
-        "fr": "Allemand",
-        "de": "Deutsch"
-      },
-      "level": {
-        "en": "Beginner",
-        "es": "Principiante",
-        "fr": "Débutant",
-        "de": "Anfänger"
-      },
-      "certifications": [
-        {
-          "name": "A1",
-          "url": "/certificates/german-a1"
-        },
-        {
-          "name": "A2",
-          "url": "/certificates/german-a2"
-        }
-      ]
+        "en": "Conversational"
+      }
     }
   ],
   "certifications": [
     {
       "name": {
-        "en": "Professional Cloud Architect",
-        "es": "Professional Cloud Architect",
-        "fr": "Architecte Cloud Professionnel",
-        "de": "Professional Cloud Architekt"
+        "en": "William Don & Wilma J Buckner Scholarship for Academic Excellence"
       },
-      "issuer": "Google Cloud",
-      "period": "2023 - 2025"
-    },
-    {
-      "name": {
-        "en": "Professional Cloud DevOps Engineer",
-        "es": "Professional Cloud DevOps Engineer",
-        "fr": "Ingénieur Cloud Professionnel",
-        "de": "Professional Cloud DevOps Engineer"
-      },
-      "issuer": "Google Cloud",
-      "period": "2023 - 2025"
-    },
-    {
-      "name": {
-        "en": "Professional Cloud Developer",
-        "es": "Professional Cloud Developer",
-        "fr": "Développeur Cloud Professionnel",
-        "de": "Professional Cloud Developer"
-      },
-      "issuer": "Google Cloud",
-      "period": "2023 - 2025"
+      "issuer": "Oklahoma State University",
+      "period": "2013 - 2014"
     }
   ],
-  "softSkills": [
-    {
-      "name": {
-        "en": "Baptiste Power Yoga Instructor",
-        "es": "Instructor de Baptiste Power Yoga",
-        "fr": "Enseignant de Baptiste Power Yoga",
-        "de": "Baptiste Power Yoga Lehrer"
-      },
-      "url": "/certificates/baptiste-yoga-teacher",
-      "issuer": "Baptiste Power Yoga San Francisco"
-    },
-    {
-      "name": {
-        "en": "CrossFit Level 1 Trainer",
-        "es": "Entrenador CrossFit Nivel 1",
-        "fr": "Entraîneur CrossFit Niveau 1",
-        "de": "CrossFit Level 1 Trainer"
-      },
-      "url": "/certificates/crossfit-level1-trainer",
-      "issuer": "CrossFit Education"
-    }
-  ]
+  "softSkills": []
 }

@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { SITE_OWNER_NAME } from "@/lib/site-owner";
 import { notFound } from "next/navigation";
 import { DocumentViewer } from "@/components/documents/document-viewer";
 import { buildCertificateDownloadFilename } from "@/lib/download-filename";
@@ -38,7 +39,7 @@ export async function generateMetadata({
       title,
       description,
       url,
-      siteName: "Daniel Baez",
+      siteName: SITE_OWNER_NAME,
       type: "website",
       images: [
         {
