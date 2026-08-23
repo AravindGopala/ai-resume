@@ -5,7 +5,7 @@ import { getSiteUrl } from "@/lib/site-url";
 
 export const SOCIAL_PROFILES = {
   linkedin: "https://linkedin.com/in/aravind-datla",
-  github: "https://github.com/aravind-datla",
+  github: "https://github.com/AravindGopala",
 } as const;
 
 export const SAME_AS_URLS = Object.values(SOCIAL_PROFILES);
