@@ -4,7 +4,7 @@ export function GithubRibbon() {
   return (
     <div className="absolute top-0 right-0 w-[150px] h-[150px] overflow-hidden z-[1000] hidden md:block">
       <Link
-        href="https://github.com/AravindGopala/ai-resume"
+        href="https://github.com/AravindGopala/AravindGopala.github.io"
         className="absolute block w-[200px] py-[5px] bg-[#151513] text-white text-center font-bold text-sm leading-normal 
           no-underline top-[42px] shadow-[0_2px_3px_rgba(0,0,0,0.5)] rotate-45 origin-center
           hover:bg-[#e05a00] transition-colors duration-200"
@@ -12,7 +12,7 @@ export function GithubRibbon() {
         rel="noopener noreferrer"
         data-track-event="github_repo_click"
         data-track-category="social"
-        data-track-url="https://github.com/AravindGopala/ai-resume"
+        data-track-url="https://github.com/AravindGopala/AravindGopala.github.io"
       >
         Fork me on GitHub
       </Link>
