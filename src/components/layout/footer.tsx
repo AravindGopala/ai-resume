@@ -20,12 +20,12 @@ export function Footer() {
           </Link>
 
           <Link
-            href="https://github.com/aravind-datla"
+            href="https://github.com/AravindGopala"
             target="_blank"
             rel="noopener noreferrer"
             data-track-event="social_link_click"
             data-track-label="github"
-            data-track-url="https://github.com/aravind-datla"
+            data-track-url="https://github.com/AravindGopala"
             className="text-gray-600 hover:text-blue-600 transition-colors"
           >
             <Github className="h-6 w-6" />
