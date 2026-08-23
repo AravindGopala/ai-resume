@@ -126,3 +126,6 @@ $RECYCLE.BIN/
 
 # Prompt files
 *.prompt.md
+
+# Full-detail resume variants kept out of the public repo
+/private/
