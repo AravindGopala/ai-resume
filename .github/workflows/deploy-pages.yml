@@ -1,0 +1,80 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [gh-pages-static]
+  workflow_dispatch:
+
+# Allow the workflow to publish to Pages via OIDC.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Let an in-flight deploy finish rather than cancelling it mid-publish.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: "npm"
+
+      - name: Configure GitHub Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Resolve base path
+        id: base
+        env:
+          REPO_NAME: ${{ github.event.repository.name }}
+          OWNER: ${{ github.repository_owner }}
+        run: |
+          # A user/org page (repo named <owner>.github.io) is served from the
+          # domain root; any other repo is a project page served from /<repo>.
+          if [ "$REPO_NAME" = "${OWNER,,}.github.io" ]; then
+            echo "path=" >> "$GITHUB_OUTPUT"
+          else
+            echo "path=/$REPO_NAME" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Install dependencies
+        run: npm install --legacy-peer-deps
+
+      - name: Build static site
+        env:
+          NEXT_PUBLIC_BASE_PATH: ${{ steps.base.outputs.path }}
+          NEXT_PUBLIC_SITE_URL: ${{ steps.pages.outputs.base_url }}
+          NEXT_PUBLIC_GA_MEASUREMENT_ID: ${{ vars.NEXT_PUBLIC_GA_MEASUREMENT_ID }}
+        run: npm run build
+
+      - name: Disable Jekyll processing
+        # Without this, Pages' Jekyll step drops the _next/ directory.
+        run: touch out/.nojekyll
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

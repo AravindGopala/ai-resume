@@ -11,6 +11,9 @@ import {
   getLanguagePageLastModified,
 } from "@/lib/seo";
 
+// Static export has no server, so this must be generated at build time.
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = getSiteUrl();
   const languages = Object.keys(AVAILABLE_LANGUAGES);

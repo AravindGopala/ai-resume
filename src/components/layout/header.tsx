@@ -3,31 +3,24 @@
 
 import { useState, useEffect, useRef } from "react"
 import { Button } from "@/components/ui/button"
-import { Calendar, Download, Menu, X } from "lucide-react"
+import { Calendar, Download, Mail, Menu, X } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
-import dynamic from "next/dynamic"
 import { useGoogleAnalytics } from '@/hooks/useGoogleAnalytics'
 import { Language, AVAILABLE_LANGUAGES } from "@/constants/i18n"
 import { useRouter } from "next/navigation"
 import { getTranslations } from "@/constants/translations"
 import { HeaderProps } from "@/types/portfolio"
 
-const ContactForm = dynamic(
-  () => import("@/components/forms/contact-form").then((mod) => mod.ContactForm),
-  { ssr: false }
-)
-
-
 export function Header({
   name,
   title,
   subtitle,
   calendlyUrl,
+  email,
   currentLang
 }: HeaderProps & { currentLang: Language }) {
   const { trackEvent } = useGoogleAnalytics()
-  const [isContactOpen, setIsContactOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [headerHeight, setHeaderHeight] = useState(0)
   const headerRef = useRef<HTMLDivElement>(null)
@@ -84,12 +77,12 @@ export function Header({
     }
   };
 
-  // For contact form
-  const handleContactOpen = async (open: boolean) => {
-    if (open) {
-      await trackEvent('contact_form_opened', { event_category: 'engagement' });
-    }
-    setIsContactOpen(open);
+  // Static export has no server actions, so contact is a plain mailto link.
+  const handleContactClick = async () => {
+    await trackEvent('contact_clicked', {
+      event_category: 'engagement',
+      link_url: `mailto:${email}`,
+    });
   };
 
   // For resume download
@@ -148,7 +141,15 @@ export function Header({
 
           <div className={`${isMobileMenuOpen ? 'flex' : 'hidden'} md:flex flex-col items-center md:items-end space-y-4 mt-2`}>
             <div className="flex flex-col items-stretch md:flex-row space-y-2 md:space-y-0 md:space-x-4 w-full md:w-auto">
-              <ContactForm isOpen={isContactOpen} onOpenChange={handleContactOpen} currentLang={currentLang} />
+              <Link
+                href={`mailto:${email}`}
+                onClick={handleContactClick}
+                prefetch={false}
+              >
+                <Button variant="outline" className="w-full border-gray-300 text-gray-700 hover:bg-gray-50">
+                  <Mail className="mr-2 h-4 w-4" /> {t.actions.contact}
+                </Button>
+              </Link>
               <Link 
                 href={`/resume/${currentLang.code}`}
                 onClick={handleResumeClick}

@@ -1,20 +1,50 @@
 ## About
 
-This is a toy project to learn about Next.js, Tailwind CSS, and React. It is a resume builder that allows you to write your resume in different languages using Markdown and JSON. Based on the data you provide, it will generate a website and a PDF version of your resume.
+A resume site built with Next.js, Tailwind CSS and React. The resume is written
+as Markdown and JSON; the build turns that data into both a website and a
+downloadable PDF.
 
-It also offers a contact a calendly link to schedule a meeting with me or a contact form to send me an email. The contact form is protected by reCAPTCHA. Each contact request is saved in the database and you can see the requests in the Firebase console.
+> **This is the `gh-pages-static` branch.** It builds a fully static site for
+> GitHub Pages. Since GitHub Pages serves plain files with no server, this
+> branch drops everything that needs one:
+>
+> - the contact form (server actions + Resend + Firebase + reCAPTCHA) — the
+>   Contact button is a `mailto:` link instead
+> - the certificates and experience-letter routes
+> - Vercel Analytics and Speed Insights
+>
+> The `main` branch keeps all of those and deploys to Vercel. Port content
+> changes to `main` first, then merge or cherry-pick them here.
 
 ## Technologies
 
-- Next.js
+- Next.js (static export)
 - Tailwind CSS
 - React
 - Markdown
 - JSON
-- Firebase
-- resend
-- reCAPTCHA
 - Calendly
+
+## Deploying to GitHub Pages
+
+1. In the repo, go to **Settings → Pages** and set **Source** to
+   **GitHub Actions**.
+2. Push to the `gh-pages-static` branch (or run the **Deploy to GitHub Pages**
+   workflow manually). `.github/workflows/deploy-pages.yml` builds the site and
+   publishes it.
+3. The site lands at `https://<owner>.github.io/<repo>/`.
+
+The workflow derives the base path from the repo name, so a project page
+(`<repo>`) and a user page (`<owner>.github.io`) both work without config
+changes. To use Google Analytics, add a repository variable named
+`NEXT_PUBLIC_GA_MEASUREMENT_ID`.
+
+To build the static site locally:
+
+```bash
+NEXT_PUBLIC_BASE_PATH=/ai-resume npm run build
+# output lands in ./out
+```
 
 ## How to specify the data
 
@@ -44,27 +74,10 @@ Copy the [.env.template](.env.template) file to `.env` and fill in the values.
 | Variable | Description | Required |
 |---|---|---|
 | **Site URL** | | |
-| `NEXT_PUBLIC_SITE_URL` | Public site URL used for SEO (sitemap, robots, og tags). Falls back to `VERCEL_URL` if not set. | No |
-| `VERCEL_URL` | Automatically provided by Vercel during deployment. Used as fallback for site URL. | No (auto) |
+| `NEXT_PUBLIC_SITE_URL` | Public site URL used for SEO (sitemap, robots, og tags). Set automatically by the Pages workflow. | No |
+| `NEXT_PUBLIC_BASE_PATH` | Path prefix the site is served under (`/<repo>` for a project page, empty for a user page). Derived automatically by the Pages workflow. | No |
 | **Google Analytics** | | |
 | `NEXT_PUBLIC_GA_MEASUREMENT_ID` | Google Analytics measurement ID (e.g. `G-XXXXXXXXXX`) | No |
-| **reCAPTCHA** | | |
-| `NEXT_PUBLIC_RECAPTCHA_SITE_KEY` | reCAPTCHA v3 site key (public, used in the browser) | Yes |
-| `RECAPTCHA_SECRET_KEY` | reCAPTCHA v3 secret key (server-side validation) | Yes |
-| **Resend** | | |
-| `RESEND_API_KEY` | API key for [Resend](https://resend.com) email service | Yes |
-| **Firebase (Client)** | | |
-| `NEXT_PUBLIC_FIREBASE_API_KEY` | Firebase API key | Yes |
-| `NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN` | Firebase auth domain | Yes |
-| `NEXT_PUBLIC_FIREBASE_PROJECT_ID` | Firebase project ID | Yes |
-| `NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET` | Firebase storage bucket | Yes |
-| `NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID` | Firebase messaging sender ID | Yes |
-| `NEXT_PUBLIC_FIREBASE_APP_ID` | Firebase app ID | Yes |
-| `NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID` | Firebase measurement ID | No |
-| **Firebase (Admin / Server-side)** | | |
-| `FIREBASE_PROJECT_ID` | Firebase project ID for Admin SDK | Yes |
-| `FIREBASE_CLIENT_EMAIL` | Firebase service account client email | Yes |
-| `FIREBASE_PRIVATE_KEY` | Firebase service account private key (with `\n` for newlines) | Yes |
 
 ## How to add a new experience
 

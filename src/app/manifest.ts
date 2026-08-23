@@ -1,6 +1,9 @@
 import { MetadataRoute } from "next";
 import { SITE_BACKGROUND_COLOR, SITE_THEME_COLOR } from "@/lib/seo";
 
+// Static export has no server, so this must be generated at build time.
+export const dynamic = "force-static";
+
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "Aravind Datla - Senior Embedded Software Engineer",
