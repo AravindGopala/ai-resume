@@ -10,6 +10,7 @@ import { TrackClicks } from "@/components/analytics/track-clicks";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { getMetadataBase, SITE_BACKGROUND_COLOR, SITE_THEME_COLOR } from "@/lib/seo";
+import { withBasePath } from "@/lib/base-path";
 
 const Toaster = dynamic(
   () => import("@/components/ui/toaster").then((mod) => mod.Toaster)
@@ -21,8 +22,9 @@ export const metadata: Metadata = {
   description:
     "Senior Embedded Software Engineer specializing in embedded Linux, firmware bring-up and IoT systems",
   icons: {
-    icon: "/icons/favicon.ico",
-    apple: "/icons/apple-touch-icon.png",
+    // Next does not apply basePath to metadata icon paths, so do it here.
+    icon: withBasePath("/icons/favicon.ico"),
+    apple: withBasePath("/icons/apple-touch-icon.png"),
   },
   other: {
     "msapplication-TileColor": SITE_BACKGROUND_COLOR,

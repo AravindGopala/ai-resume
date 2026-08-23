@@ -14,6 +14,7 @@ import {
 import { PdfCanvasViewer } from "@/components/documents/pdf-canvas-viewer";
 import { AVAILABLE_LANGUAGES, Language } from "@/constants/i18n";
 import { getTranslations } from "@/constants/translations";
+import { withBasePath } from "@/lib/base-path";
 
 type DocumentViewerProps = {
   title: string;
@@ -40,6 +41,11 @@ export function DocumentViewer({
   const labels = t.documentViewer;
   const [zoom, setZoom] = useState(1);
 
+  // pdfUrl is app-root-relative. next/link applies the base path itself, but a
+  // raw fetch, an <a href> and pdf.js all take the URL verbatim, so resolve it
+  // once here and hand the resolved form to every consumer below.
+  const resolvedPdfUrl = withBasePath(pdfUrl);
+
   const zoomOut = useCallback(() => {
     setZoom((current) => Math.max(MIN_ZOOM, current - ZOOM_STEP));
   }, []);
@@ -49,9 +55,9 @@ export function DocumentViewer({
   }, []);
 
   const downloadPdf = useCallback(async () => {
-    const response = await fetch(pdfUrl);
+    const response = await fetch(resolvedPdfUrl);
     if (!response.ok) {
-      throw new Error(`Failed to download ${pdfUrl}`);
+      throw new Error(`Failed to download ${resolvedPdfUrl}`);
     }
 
     const blob = await response.blob();
@@ -61,7 +67,7 @@ export function DocumentViewer({
     anchor.download = pdfFilename;
     anchor.click();
     URL.revokeObjectURL(objectUrl);
-  }, [pdfUrl, pdfFilename]);
+  }, [resolvedPdfUrl, pdfFilename]);
 
   return (
     <div className="flex h-screen flex-col bg-[#1e1e1e] text-white">
@@ -87,7 +93,7 @@ export function DocumentViewer({
             <span className="hidden sm:inline">{labels.download}</span>
           </button>
           <a
-            href={pdfUrl}
+            href={resolvedPdfUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full px-3 py-2 text-sm text-white/80 transition-colors hover:bg-white/10"
@@ -110,7 +116,7 @@ export function DocumentViewer({
       <div className="relative flex flex-1 justify-center overflow-auto bg-[#1e1e1e] p-4 sm:p-8">
         <div className="w-full max-w-5xl">
           <PdfCanvasViewer
-            pdfUrl={pdfUrl}
+            pdfUrl={resolvedPdfUrl}
             zoom={zoom}
             title={title}
             labels={labels}
