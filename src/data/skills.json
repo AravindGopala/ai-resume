@@ -1,19 +1,26 @@
 {
   "categories": {
     "core": {
-      "name": { "en": "Core Technologies" },
+      "name": {
+        "en": "Core Technologies"
+      },
       "skills": [
         "Embedded Linux",
         "FreeRTOS",
         "Firmware Bring-Up",
         "Board Support Packages",
-        "IoT / Connected Devices",
-        "Low-Power Optimization",
+        "Fleet-Scale IoT (300k+ devices)",
+        "OTA / Firmware Update Systems",
+        "Low-Power & Thermal Optimization",
+        "Cellular & GNSS Subsystems",
+        "Platform Architecture",
         "Object-Oriented Design (UML, SOLID, Design Patterns)"
       ]
     },
     "languages": {
-      "name": { "en": "Programming Languages" },
+      "name": {
+        "en": "Programming Languages"
+      },
       "skills": [
         "C",
         "C++",
@@ -23,26 +30,35 @@
       ]
     },
     "frameworks": {
-      "name": { "en": "Tools, Protocols & Platforms" },
+      "name": {
+        "en": "Tools, Protocols & Platforms"
+      },
       "skills": [
         "ARM Toolchain",
         "CMake",
         "Make",
         "Ninja",
+        "CI/CD (Tekton, Prow)",
         "U-Boot",
-        "Linux Kernel",
+        "Linux Kernel & Drivers",
         "Root File System",
         "GDB & Core File Analysis",
         "CAN",
         "I2C",
         "SPI",
         "IPC",
-        "Wi-Fi",
-        "LTE",
-        "GPS",
+        "MQTT",
+        "AWS IoT",
+        "LTE / Cellular Modems (AT, RIL)",
+        "GNSS (u-blox, Quectel)",
+        "Wi-Fi / hostapd",
+        "Bluetooth",
+        "SQLite / eMMC",
         "CANoe",
         "CANalyzer",
+        "Spirent GPS Simulator",
         "Git",
+        "Snowflake / SQL",
         "Unit Testing (Mocks, Fakes, Stubs)"
       ]
     }

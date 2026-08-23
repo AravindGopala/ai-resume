@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { getNextColor } from "@/lib/colors";
 import { getTranslations } from "@/constants/translations"
 
-export function Education({ educationEntries, certifications, languages, currentLang, softSkills}: EducationProps) {
+export function Education({ educationEntries, certifications, awards, languages, currentLang, softSkills}: EducationProps) {
   const t = getTranslations(currentLang)
   
   if (!educationEntries || !certifications) {
@@ -26,9 +26,17 @@ export function Education({ educationEntries, certifications, languages, current
           <div key={index}>
             <h3 className="text-xl font-semibold text-gray-800">{education.title}</h3>
             <p className="text-gray-600">{education.institution} | {education.period}</p>
+            {education.details && (
+              <ul className="mt-1 list-disc list-inside text-sm text-gray-600">
+                {education.details.map((detail) => (
+                  <li key={detail}>{detail}</li>
+                ))}
+              </ul>
+            )}
           </div>
         ))}
 
+        {Object.keys(certifications).length > 0 && (
         <div>
           <h3 className="text-lg font-semibold text-gray-800 mb-3">{t.sections.certifications}</h3>
           <div className="flex flex-col gap-2">
@@ -48,6 +56,31 @@ export function Education({ educationEntries, certifications, languages, current
             })}
           </div>
         </div>
+        )}
+
+        {awards.length > 0 && (
+        <div>
+          <h3 className="text-lg font-semibold text-gray-800 mb-3">{t.sections.awards}</h3>
+          <div className="flex flex-col gap-2">
+            {awards.map((award, index) => {
+              const color = getNextColor();
+              return (
+                <div key={index} className="flex items-center gap-2">
+                  <Badge
+                    variant="secondary"
+                    className={`${color.color} ${color.textColor} ${color.hoverColor}`}
+                  >
+                    {award.name}
+                  </Badge>
+                  <span className="text-gray-600 text-sm ml-1">
+                    {award.issuer} &nbsp;|&nbsp; {award.period}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+        )}
 
         <div>
           <h3 className="text-lg font-semibold text-gray-800 mb-3">{t.sections.languages}</h3>

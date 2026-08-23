@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import { Language } from "@/constants/i18n";
-import { ProfileData, Skill } from "@/types/portfolio";
+import { AwardEntry, ProfileData, Skill } from "@/types/portfolio";
 
 export const getDataPath = (lang: Language) => {
   return path.join(process.cwd(), "src/data", lang.code);
@@ -41,6 +41,14 @@ export const getProfileData = (lang: Language): ProfileData => {
     };
   }
 
+  const awards: AwardEntry[] = (raw.awards ?? []).map(
+    (a: { name: TranslatableString; issuer: string; period: string }) => ({
+      name: resolve(a.name, lang.code),
+      issuer: a.issuer,
+      period: a.period,
+    })
+  );
+
   return {
     info: {
       name: resolve(raw.info.name, lang.code),
@@ -53,17 +61,28 @@ export const getProfileData = (lang: Language): ProfileData => {
       linkedin: raw.info.linkedin,
       github: raw.info.github,
     },
-    education: raw.education.map((e: { title: TranslatableString; period: string; institution: string }) => ({
-      title: resolve(e.title, lang.code),
-      period: e.period,
-      institution: e.institution,
-    })),
+    education: raw.education.map(
+      (e: {
+        title: TranslatableString;
+        period: string;
+        institution: string;
+        details?: TranslatableString[];
+      }) => ({
+        title: resolve(e.title, lang.code),
+        period: e.period,
+        institution: e.institution,
+        ...(e.details && {
+          details: e.details.map((d) => resolve(d, lang.code)),
+        }),
+      })
+    ),
     languages: raw.languages.map((l: { name: TranslatableString; level: TranslatableString; certifications?: { name: string; url: string }[] }) => ({
       name: resolve(l.name, lang.code),
       level: resolve(l.level, lang.code),
       ...(l.certifications && { certifications: l.certifications }),
     })),
     certifications,
+    awards,
     softSkills: raw.softSkills.map((s: { name: TranslatableString; url?: string; issuer: string }) => ({
       name: resolve(s.name, lang.code),
       url: s.url,
