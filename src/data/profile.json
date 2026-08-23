@@ -7,7 +7,7 @@
       "en": "Senior Embedded Software Engineer"
     },
     "subtitle": {
-      "en": "Embedded Linux, Firmware & IoT Systems"
+      "en": "Embedded Linux & Firmware Platforms at Fleet Scale"
     },
     "calendlyUrl": "https://calendly.com/aravind-datla",
     "location": "United States | Remote",
@@ -22,7 +22,15 @@
         "en": "M.S. in Electrical and Computer Engineering (GPA 3.96/4.0)"
       },
       "period": "2013 - 2015",
-      "institution": "Oklahoma State University, Stillwater, OK"
+      "institution": "Oklahoma State University, Stillwater, OK",
+      "details": [
+        {
+          "en": "Thesis: Insect Classification and Detection Using Feature Fusion for Mobile Vision"
+        },
+        {
+          "en": "Graduate Researcher, Visual Computing and Image Processing Lab (VCIPL)"
+        }
+      ]
     },
     {
       "title": {
@@ -48,17 +56,10 @@
       "level": {
         "en": "Fluent"
       }
-    },
-    {
-      "name": {
-        "en": "Hindi"
-      },
-      "level": {
-        "en": "Conversational"
-      }
     }
   ],
-  "certifications": [
+  "certifications": [],
+  "awards": [
     {
       "name": {
         "en": "William Don & Wilma J Buckner Scholarship for Academic Excellence"

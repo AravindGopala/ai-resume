@@ -445,10 +445,14 @@ export const PDFResume = ({
             <View key={index} style={styles.educationEntry}>
               <Text style={styles.educationTitle}>{edu.title}</Text>
               <Text style={styles.educationDetails}>{edu.institution} | {edu.period}</Text>
+              {edu.details?.map((detail) => (
+                <Text key={detail} style={styles.educationDetails}>{detail}</Text>
+              ))}
             </View>
           ))}
         </View>
 
+        {Object.keys(profileData.certifications).length > 0 && (
         <View>
           <Text style={styles.sectionTitle}>{t.sections.certifications}</Text>
           {Object.entries(profileData.certifications).map(([name, details], index) => (
@@ -458,6 +462,19 @@ export const PDFResume = ({
             </View>
           ))}
         </View>
+        )}
+
+        {profileData.awards.length > 0 && (
+        <View>
+          <Text style={styles.sectionTitle}>{t.sections.awards}</Text>
+          {profileData.awards.map((award, index) => (
+            <View key={index} style={styles.certificationEntry}>
+              <Text style={styles.certificationTitle}>{award.name}</Text>
+              <Text style={styles.certificationDetails}>{award.issuer} &nbsp;|&nbsp; {award.period}</Text>
+            </View>
+          ))}
+        </View>
+        )}
 
         <View>
           <Text style={styles.sectionTitle}>{t.sections.languages}</Text>

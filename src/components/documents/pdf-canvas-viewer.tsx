@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { withBasePath } from "@/lib/base-path";
 
 type LinkOverlay = {
   id: string;
@@ -35,7 +36,9 @@ type PdfCanvasViewerProps = {
 
 async function loadPdfJs() {
   const pdfjs = await import("pdfjs-dist/build/pdf.mjs");
-  pdfjs.GlobalWorkerOptions.workerSrc = "/pdf.worker.mjs";
+  // Raw URL handed to pdf.js, so it needs the base path applied by hand —
+  // on a GitHub Pages project page the site is not served from the root.
+  pdfjs.GlobalWorkerOptions.workerSrc = withBasePath("/pdf.worker.mjs");
   return pdfjs;
 }
 

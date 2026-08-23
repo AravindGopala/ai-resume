@@ -113,6 +113,7 @@ export default async function LangPage({
             softSkills={profileData.softSkills}
             educationEntries={profileData.education}
             certifications={profileData.certifications}
+            awards={profileData.awards}
             languages={profileData.languages}
             currentLang={lang}
           />

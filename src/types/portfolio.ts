@@ -25,6 +25,14 @@ export interface EducationEntry {
   title: string;
   institution: string;
   period: string;
+  /** Extra lines under the degree, e.g. thesis title or lab affiliation. */
+  details?: string[];
+}
+
+export interface AwardEntry {
+  name: string;
+  issuer: string;
+  period: string;
 }
 
 export interface LanguageEntry {
@@ -60,6 +68,7 @@ export interface EducationProps {
   softSkills: SoftSkillEntry[];
   educationEntries: EducationEntry[];
   certifications: Certifications;
+  awards: AwardEntry[];
   languages: LanguageEntry[];
   currentLang: Language;
 }
@@ -85,6 +94,7 @@ export type ProfileData = {
   info: HeaderProps;
   education: EducationEntry[];
   certifications: Certifications;
+  awards: AwardEntry[];
   languages: LanguageEntry[];
   softSkills: SoftSkillEntry[];
   skills: { [key: string]: Skill[] };

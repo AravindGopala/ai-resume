@@ -15,6 +15,7 @@ export type TranslationKeys = {
     languages: string
     softSkills: string
     certifications: string
+    awards: string
     experience_letter: string
   }
   actions: {
@@ -85,6 +86,7 @@ const translations: Record<string, TranslationKeys> = {
       education: "Education",
       languages: "Languages",
       certifications: "Professional Certifications",
+      awards: "Awards & Recognition",
       experience_letter: "Experience Letter"
     },
     actions: {
@@ -153,6 +155,7 @@ const translations: Record<string, TranslationKeys> = {
       education: "Educación",
       languages: "Idiomas",
       certifications: "Certificaciones Profesionales",
+      awards: "Premios y Reconocimientos",
       experience_letter: "Carta de Experiencia"
     },
     actions: {
@@ -221,6 +224,7 @@ const translations: Record<string, TranslationKeys> = {
       education: "Éducation",
       languages: "Langues",
       certifications: "Certifications Professionnelles",
+      awards: "Prix et Distinctions",
       experience_letter: "Lettre de recommandation"
     },
     actions: {
