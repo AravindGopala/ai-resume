@@ -14,6 +14,7 @@ import {
   getLanguageAlternates,
   getOgLocale,
   getOgLocaleAlternates,
+  OG_IMAGE_PATH,
 } from "@/lib/seo";
 import { Metadata } from "next";
 
@@ -54,7 +55,7 @@ export async function generateMetadata({
       type: "profile",
       images: [
         {
-          url: "/og-image.png",
+          url: OG_IMAGE_PATH,
           width: 1200,
           height: 630,
           alt: title,
@@ -65,7 +66,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title,
       description,
-      images: ["/og-image.png"],
+      images: [OG_IMAGE_PATH],
     },
     alternates: {
       canonical: `${baseUrl}/${langCode}`,

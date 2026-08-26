@@ -29,10 +29,10 @@ describe("site-url", () => {
 
   test("NEXT_PUBLIC_SITE_URL takes precedence and strips trailing slash", () => {
     saveEnv();
-    process.env.NEXT_PUBLIC_SITE_URL = "https://danielbaez.cl/";
+    process.env.NEXT_PUBLIC_SITE_URL = "https://aravindgopala.github.io/";
     delete process.env.VERCEL_URL;
 
-    assert.strictEqual(getSiteUrl(), "https://danielbaez.cl");
+    assert.strictEqual(getSiteUrl(), "https://aravindgopala.github.io");
   });
 
   test("VERCEL_URL is used when NEXT_PUBLIC_SITE_URL is unset", () => {

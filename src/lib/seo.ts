@@ -14,6 +14,13 @@ export const OG_LOCALE_BY_LANG: Record<string, string> = {
   en: "en_US",
 };
 
+/**
+ * Social card image. The `v` query is a cache buster: bump it whenever
+ * public/og-image.png is regenerated, otherwise LinkedIn/Slack/X keep serving
+ * the previously scraped card.
+ */
+export const OG_IMAGE_PATH = "/og-image.png?v=2";
+
 export const SITE_THEME_COLOR = "#1e3a8a";
 export const SITE_BACKGROUND_COLOR = "#eff6ff";
 
