@@ -1,4 +1,4 @@
-import { SAME_AS_URLS } from "@/lib/seo";
+import { OG_IMAGE_PATH, SAME_AS_URLS } from "@/lib/seo";
 import { getSiteUrl } from "@/lib/site-url";
 
 interface JsonLdPersonProps {
@@ -28,7 +28,7 @@ export function JsonLdPerson({
     name,
     jobTitle,
     description,
-    image: `${baseUrl}/og-image.png`,
+    image: `${baseUrl}${OG_IMAGE_PATH}`,
     sameAs: SAME_AS_URLS,
     address: {
       "@type": "PostalAddress",
